@@ -109,6 +109,8 @@ void MorrisTraversal(tNode root)
 } 
 ```
 
-## Leetcode
+### Time Complexity
+[How is the time complexity of Morris Traversal o(n)?](https://stackoverflow.com/questions/6478063/how-is-the-time-complexity-of-morris-traversal-on)
 
+## Leetcode
 [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
