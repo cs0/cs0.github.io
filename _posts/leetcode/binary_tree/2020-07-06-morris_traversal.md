@@ -2,7 +2,7 @@
 title: Morris Traversal
 date: 2020-07-06 20:10:00
 categories: [LeetCode]
-tags: [leetcode,algorithm,bianry tree,medium]
+tags: [leetcode,algorithm,binary tree,medium]
 ---
 Morris Traversal can traverse binary tree without recursion and stack, i.e. `O(1)` space usage.
 In this article, we discuss the inorder Morris Traversal. 
