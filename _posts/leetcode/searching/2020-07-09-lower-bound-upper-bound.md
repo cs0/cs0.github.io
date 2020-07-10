@@ -8,6 +8,10 @@ For binary search of repeated elements in sorted array, the `binarySearch` in Ja
 
 Here we discuss how to return the first or last of such repeated element. 
 <!--more-->
+## How to write binary search correctly?
+[How to write binary search correctly](https://zhu45.org/posts/2018/Jan/12/how-to-write-binary-search-correctly/)
+
+[Writing correct code](https://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/)
 
 ## C++ Implementation
 This part is borrowed from [Stack Overflow: Implementation of C lower_bound](https://stackoverflow.com/questions/6443569/implementation-of-c-lower-bound).
@@ -40,11 +44,12 @@ int bs_lower_bound(int a[], int n, int x) {
     while (l < h) {
         int mid =  l + (h - l) / 2;
         if (x <= a[mid]) {
-            h = mid;
+            h = mid; // NOT mid - 1
         } else {
             l = mid + 1;
         }
     }
+    // loop ends when left == right
     return l;
 }
 ```
