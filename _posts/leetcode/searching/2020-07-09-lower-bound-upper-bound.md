@@ -26,7 +26,7 @@ Note that here high index is set to n instead of n - 1. These functions can retu
 The following can be considered as Java implementation. 
 
 ```Java
-int bs_upper_bound(int a[], int n, int x) {
+public int bs_upper_bound(int[] a, int n, int x) {
     int l = 0;
     int h = n; // Not n - 1, as we use exclusive end
     while (l < h) {
@@ -41,8 +41,10 @@ int bs_upper_bound(int a[], int n, int x) {
     }
     return l;
 }
+```
 
-int bs_lower_bound(int a[], int n, int x) {
+```Java
+public int bs_lower_bound(int[] a, int n, int x) {
     int l = 0;
     int h = n; // Not n - 1
     while (l < h) {
