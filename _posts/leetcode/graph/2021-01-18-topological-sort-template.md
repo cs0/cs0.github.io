@@ -22,7 +22,6 @@ int[] topologicalSort() {
         // if detected cycle, return empty array
         if (!dfs(graph, i, status)) return new int[0];
     }
-
     // construct final res with reverse order
     for (int i = n-1; i >= 0; i--) {
         res[n-i-1] = resList.get(i);
@@ -37,7 +36,7 @@ boolean dfs(int cur) {
     
     status[cur] = VISITING;
     for (var adj: graph.getOrDefault(cur, new ArrayList<>())) {
-        if (!dfs(graph, adj, status)) {
+        if (!dfs(adj)) {
             return false;
         }
     }
