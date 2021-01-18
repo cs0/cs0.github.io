@@ -10,7 +10,7 @@ tags: [leetcode,dfs,topologial sort,algorithm]
 Topological Sort template based on DFS in Java
 
 
-```Java
+```java
 int UNKNOWN = 0, VISITING = 1, VISITED = 2;
 
 List<Integer>> graph; // build graph
