@@ -94,6 +94,7 @@ key idea is to find the predecessor, and link predecessor to the current node be
                 res.add(cur.val);
                 // then move to right
                 // note right can be null, and we will break the while loop
+                // go to right can also be jumping from predecessor to the next
                 cur = cur.right;
             } else if (pre.right == null) {
                 // Case 2: pre.right is not yet linked to cur
@@ -111,6 +112,7 @@ key idea is to find the predecessor, and link predecessor to the current node be
                 // reset pre link to recover the original tree structure
                 pre.right = null;
                 // process the right subtree
+                // go to right can also be jumping from predecessor to the next
                 cur = cur.right;
             }
         }
@@ -118,7 +120,7 @@ key idea is to find the predecessor, and link predecessor to the current node be
         return res;
     }
 ```
-
+<!--
 ### Alternative Code, Just for reference
 Java code:
 ```java
@@ -162,6 +164,7 @@ void MorrisTraversal(tNode root)
     } /* End of while */
 } 
 ```
+-->
 
 ### Time Complexity
 [How is the time complexity of Morris Traversal o(n)?](https://stackoverflow.com/questions/6478063/how-is-the-time-complexity-of-morris-traversal-on)
