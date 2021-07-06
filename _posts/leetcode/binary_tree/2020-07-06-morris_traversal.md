@@ -66,6 +66,60 @@ while (pre.right != null && pre.right != current)
 7. When to `visit(current)` decide whether it is an inorder, or preorder. 
 
 ### Code
+Here we present an easy to remember code structure
+```java
+/*
+key idea is to find the predecessor, and link predecessor to the current node before going down further so we can come back
+*/
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+       
+        TreeNode cur = root; // copy the root reference so we do not operate on the root
+       
+        while (cur != null) {
+            // first find the predecessor
+            // which is the right most node of its left child
+            TreeNode pre = cur.left;
+            while (pre != null && pre.right != null && pre.right != cur) {
+                // pre != null to prevent that root.left is null
+                // pre.right != null so that we ends at the right most node
+                // pre.right != node so we do not enter the loop we created, and we process this later
+                pre = pre.right;
+            }
+           
+            if (pre == null) {
+                // Case 1: no predecessor, which means cur.left is null
+                // it is time to process the cur
+                res.add(cur.val);
+                // then move to right
+                // note right can be null, and we will break the while loop
+                cur = cur.right;
+            } else if (pre.right == null) {
+                // Case 2: pre.right is not yet linked to cur
+                // link pre.right to cur, so we can go back to cur after processing the left child-tree
+                pre.right = cur;
+                // process the left child-tree
+                // cur.left can not be null, otherwise pre will be null, and is processed in Case 1
+                cur = cur.left;
+            } else {
+                // Case 3: pre.right is linked to cur
+                // which means the left child-tree is processed
+                // we go back to cur (done automatically, as cur's pre is pointing to cur, and we are at cur now)
+                // and process cur
+                res.add(cur.val);
+                // reset pre link to recover the original tree structure
+                pre.right = null;
+                // process the right subtree
+                cur = cur.right;
+            }
+        }
+       
+        return res;
+    }
+```
+
+### Alternative Code, Just for reference
 Java code:
 ```java
 /* Function to traverse a binary tree without recursion and  
