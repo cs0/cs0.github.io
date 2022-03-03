@@ -13,6 +13,37 @@ Here we discuss how to return the first or last of such repeated element.
 
 [Writing correct code](https://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/)
 
+[Ultimate Binary Search Template](https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-binary-search-template-solved-many-problems)
+
+## Ultimate Template
+
+Suppose we have a search space. It could be an array, a range, etc. Usually it's sorted in ascending order. For most tasks, we can transform the requirement into the following generalized form:
+
+**Minimize k , s.t. condition(k) is True**
+
+The following code is the most generalized binary search template:
+
+```python
+def binary_search(array) -> int:
+    def condition(value) -> bool:
+        pass
+
+    left, right = min(search_space), max(search_space) # could be [0, n], [1, n] etc. Depends on problem
+    while left < right:
+        mid = left + (right - left) // 2
+        if condition(mid):
+            right = mid
+        else:
+            left = mid + 1
+    return left
+```
+Things to remember:
+- boundary: left inclusive, right exclusive;
+- if condition is satisfied, right = mid;
+- return left. Remember this: after exiting the while loop, **left is the minimal k​ satisfying the condition function**;
+
+
+**Before you continue, the following is just to apply the template. There is no need to read if you understand the template.**
 ## Array Implementation
 This part is borrowed from [Stack Overflow: Implementation of C lower_bound](https://stackoverflow.com/questions/6443569/implementation-of-c-lower-bound).
 
@@ -70,8 +101,6 @@ Then Revisit the definition of `lower_bound` and `upper_bound`:
 We observed for `[low, high)` invariant, `lower_bound` and `upper_bound` basic logic is the same as `binary_search` except:
 1. the logic when `array[mid] == x`, instead of return directly, `lower_bound` and `upper_bound` have different search strategy.
 2. return `l` at the very end instead of `-1` to indicate a not found. 
-
-
 
 The actual C++ implementation works for all containers:
 ```cpp
