@@ -1,6 +1,6 @@
 ---
 title: MapReduce 
-date: 2021-01-18 11:17:00
+date: 2022-06-20 11:17:00
 categories: [System Design]
 tags: [system design, paper]
 ---
