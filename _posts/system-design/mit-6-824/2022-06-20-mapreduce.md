@@ -29,3 +29,5 @@ Machine failures are common. Storage is provided by inexpensive IDE disks attach
 
 Based on [this SO](https://stackoverflow.com/questions/13373586/does-reduce-in-mapreduce-run-right-away-or-wait-for-map-to-complete#:~:text=In%20a%20MapReduce%20job%20reducers,some%20maps%20are%20still%20running%20..),
 the reducer starts to copy intermediate data as soon as they are available, but the execution will wait for all mapper to finish. 
+
+- It is not clear to me how sort works for a MapReduce program. Specifically, when you have multiple reducers, there is no control of which reducer writes first. If a reducer working on range (D-F) finishes first and write the output, before reducer working on range (A-C) finishes, then (D-F) will be before (A-C).
