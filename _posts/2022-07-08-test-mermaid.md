@@ -23,17 +23,17 @@ graph TB;
     C[Secondary Replica A]
     D[Primary Replica]
     E[Secondary Replica B]
-    A -->|step1| B;
-    B -->|2| A;
-    A ==>|3| C;
-    A -->|4| D;
-    C -->|6| D;
+    A --> B;
+    B --> A;
+    A ==> C;
+    A --> D;
+    C --> D;
     C ==> D
-    D -->|5| C;
-    D -->|5| E;
+    D --> C;
+    D --> E;
     D ==> E;
-    E -->|6| D;
-    D -->|7| A;
+    E --> D;
+    D --> A;
 ```
 
 <!--more-->
