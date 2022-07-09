@@ -22,7 +22,6 @@ graph TB;
     B((Master))
     C[Secondary Replica A]
     D[Primary Replica]
-    E[Secondary Replica B]
     A --> B;
     B --> A;
     A ==> C;
@@ -30,9 +29,6 @@ graph TB;
     C --> D;
     C ==> D
     D --> C;
-    D --> E;
-    D ==> E;
-    E --> D;
     D --> A;
 ```
 
