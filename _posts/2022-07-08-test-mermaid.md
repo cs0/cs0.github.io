@@ -18,6 +18,10 @@ graph TB;
 
 ```mermaid
 graph TB;
+    A[Client]
+    B[Master]
+    C[Secondary Replica A]
+    D[Primary Replica]
     A --> B;
     B --> A;
     A ==> C;
