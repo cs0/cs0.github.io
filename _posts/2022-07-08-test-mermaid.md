@@ -17,15 +17,20 @@ graph TB;
 ```
 
 ```mermaid
-graph TD;
-    A([Client])-->|step1| B((Master));
+graph TB;
+    A([Client])
+    B((Master))
+    C[Secondary Replica A]
+    D[Primary Replica]
+    E[Secondary Replica B]
+    A -->|step1| B;
     B -->|2| A;
-    A ==>|3| C[Secondary Replica A];
+    A ==>|3| C;
     A -->|4| D;
-    C -->|6| D[Primary Replica];
+    C -->|6| D;
     C ==> D
     D -->|5| C;
-    D -->|5| E[Secondary Replica B];
+    D -->|5| E;
     D ==> E;
     E -->|6| D;
     D -->|7| A;
