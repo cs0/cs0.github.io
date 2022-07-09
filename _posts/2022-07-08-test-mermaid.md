@@ -16,6 +16,21 @@ graph TB;
     C--yes-->B;
 ```
 
+```mermaid
+graph TD;
+    A([Client])-->|step1| B((Master));
+    B -->|2| A;
+    A ==>|3| C[Secondary Replica A];
+    A -->|4| D;
+    C -->|6| D[Primary Replica];
+    C ==> D
+    D -->|5| C;
+    D -->|5| E[Secondary Replica B];
+    D ==> E;
+    E -->|6| D;
+    D -->|7| A;
+```
+
 <!--more-->
 
 You need set `mermaid: true` in the *_config.yml* or the markdown’s front matter to **enable** it.
