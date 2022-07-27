@@ -16,7 +16,7 @@ import (
 const TempDir = "tmp"
 
 // task timeout, 10 seconds
-const TaskTimeout time.Duration = 10000
+const TaskTimeout time.Duration = 10
 
 // Q: what is the best way to timeout ?
 
